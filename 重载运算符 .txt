@@ -1,0 +1,7 @@
+如果有一个类 A，A 有一个重载运算符 A operator + (A);
+
+
+A a1，a2；
+
+
+那么 a1 + a2 的意思就是 a1.operator(a2);

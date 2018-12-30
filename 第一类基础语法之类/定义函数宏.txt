@@ -1,0 +1,1 @@
+#define KEY_DOWN(vk_c) ( GetAsyncKeyState(vk_c) & 0x8000 ? 1 : 0)

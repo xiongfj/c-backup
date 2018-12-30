@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+
+
+class MM
+{
+public:
+	MM():	x(100)	{}
+	int x;
+};
+
+
+class NN : public MM
+{
+public:
+	NN()	{ x = 200; }
+	int x;		// 成员数据无覆盖之说！！
+};
+
+void main()
+{
+	MM* p = new NN;
+
+	printf( "%d", p->x );	// 输出结果 100
+}

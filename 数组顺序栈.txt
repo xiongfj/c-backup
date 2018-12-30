@@ -1,0 +1,70 @@
+#ifndef _ARRAYSTACK_H_
+#define _ARRAYSTACK_H_
+
+#include <stdio.h>
+
+#define MAXSIZE		100
+
+typedef struct stack
+{
+	int data[100];
+	int top;
+
+}ArrayStack;
+
+// ³õÊ¼»¯
+void InitStack( ArrayStack* s)
+{
+	s->top = -1;
+}
+
+// Õ»¿Õ
+bool StackEmpty( ArrayStack* s )
+{
+	return s->top == -1;
+}
+
+// Õ»Âú
+bool StackFull( ArrayStack* s )
+{
+	return s->top == MAXSIZE - 1;
+}
+
+// ÈëÕ»
+void Push( ArrayStack* s, int x )
+{
+	if ( StackFull(s) )
+		printf( "Õ»ÂúÁË\n" );
+	else
+	{
+		s->top += 1;
+		s->data[s->top] = x;
+	}
+}
+
+// ³öÕ»
+int Pop( ArrayStack*s )		
+{
+	if ( StackEmpty(s) )
+	{
+		printf( "Õ»¿Õ\n" );
+		return -1;
+	}
+	else
+		return s->data[s->top--];
+}
+
+// È¡Õ»¶¥
+int GetTop( ArrayStack* s )
+{
+	if ( StackEmpty(s) )
+	{
+		printf( "¿ÕÕ»\n" );
+		return -1;
+	}
+	else
+		return s->data[s->top];
+}
+
+
+#endif
